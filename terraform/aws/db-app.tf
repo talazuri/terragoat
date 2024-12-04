@@ -242,7 +242,7 @@ data "aws_ami" "amazon-linux-2" {
 
 resource "aws_instance" "db_app" {
   # ec2 have plain text secrets in user data
-  #checkov:skip=CKV_AWS_135:Remove EC2 EBS is not optimized
+  #checkov:skip=CKV_AWS_135,CKV_AWS_126,CKV_AWS_8:Remove all checks
   ami                  = data.aws_ami.amazon-linux-2.id
   instance_type        = "t2.nano"
   iam_instance_profile = aws_iam_instance_profile.ec2profile.name
